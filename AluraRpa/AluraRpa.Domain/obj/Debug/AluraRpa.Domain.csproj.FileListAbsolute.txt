@@ -1,0 +1,6 @@
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Domain\bin\Debug\AluraRpa.Domain.dll
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Domain\bin\Debug\AluraRpa.Domain.pdb
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Domain\obj\Debug\AluraRpa.Domain.csproj.AssemblyReference.cache
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Domain\obj\Debug\AluraRpa.Domain.csproj.CoreCompileInputs.cache
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Domain\obj\Debug\AluraRpa.Domain.dll
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Domain\obj\Debug\AluraRpa.Domain.pdb

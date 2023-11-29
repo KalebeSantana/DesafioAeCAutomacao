@@ -1,0 +1,6 @@
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Shared\bin\Debug\AluraRpa.Shared.dll
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Shared\bin\Debug\AluraRpa.Shared.pdb
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Shared\obj\Debug\AluraRpa.Shared.csproj.AssemblyReference.cache
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Shared\obj\Debug\AluraRpa.Shared.csproj.CoreCompileInputs.cache
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Shared\obj\Debug\AluraRpa.Shared.dll
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.Shared\obj\Debug\AluraRpa.Shared.pdb

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraRpa.ConsoleApp", "AluraRpa.ConsoleApp\AluraRpa.ConsoleApp.csproj", "{F53D066A-5016-4117-B9D0-9DFFBD525657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraRpa.Application", "AluraRpa.Application\AluraRpa.Application.csproj", "{C2702005-87F6-4DBE-876E-9A415B3F6C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraRpa.Domain", "AluraRpa.Domain\AluraRpa.Domain.csproj", "{95D89131-A66C-4FAE-87C0-6BB5CA880FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraRpa.Infrastructure", "AluraRpa.Infrastructure\AluraRpa.Infrastructure.csproj", "{E0C6FAEE-EA10-4CC5-9156-63F7EA85ADF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraRpa.Shared", "AluraRpa.Shared\AluraRpa.Shared.csproj", "{0BB2FF55-8B88-45E0-AF72-1B703DEEC838}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraRpa.Tests", "AluraRpa.Tests\AluraRpa.Tests.csproj", "{EF5135AE-961A-466E-B3D7-DEA670F08CAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F53D066A-5016-4117-B9D0-9DFFBD525657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53D066A-5016-4117-B9D0-9DFFBD525657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53D066A-5016-4117-B9D0-9DFFBD525657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53D066A-5016-4117-B9D0-9DFFBD525657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2702005-87F6-4DBE-876E-9A415B3F6C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2702005-87F6-4DBE-876E-9A415B3F6C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2702005-87F6-4DBE-876E-9A415B3F6C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2702005-87F6-4DBE-876E-9A415B3F6C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D89131-A66C-4FAE-87C0-6BB5CA880FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D89131-A66C-4FAE-87C0-6BB5CA880FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D89131-A66C-4FAE-87C0-6BB5CA880FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D89131-A66C-4FAE-87C0-6BB5CA880FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C6FAEE-EA10-4CC5-9156-63F7EA85ADF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C6FAEE-EA10-4CC5-9156-63F7EA85ADF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C6FAEE-EA10-4CC5-9156-63F7EA85ADF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C6FAEE-EA10-4CC5-9156-63F7EA85ADF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB2FF55-8B88-45E0-AF72-1B703DEEC838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB2FF55-8B88-45E0-AF72-1B703DEEC838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB2FF55-8B88-45E0-AF72-1B703DEEC838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB2FF55-8B88-45E0-AF72-1B703DEEC838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF5135AE-961A-466E-B3D7-DEA670F08CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5135AE-961A-466E-B3D7-DEA670F08CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5135AE-961A-466E-B3D7-DEA670F08CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5135AE-961A-466E-B3D7-DEA670F08CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8E94960-D579-4547-8E1D-DCCA4509CF3A}
+	EndGlobalSection
+EndGlobal
