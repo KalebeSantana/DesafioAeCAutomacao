@@ -16,9 +16,16 @@ namespace AluraRpa.Application
         // Implementação do serviço de busca na Alura
         public void RealizarBusca(string termoBusca)
         {
-            _scrapingService.RealizarWebScraping(termoBusca);
+            
+            // Obter os resultados da classe AluraWebScrapingService
+            var resultados = _scrapingService.RealizarWebScraping(termoBusca);
 
-            // Lógica para manipular os resultados e salvar no banco de dados utilizando _resultadosService
+            // Lógica para manipular e salvar os resultados no banco de dados
+            foreach (var resultado in resultados)
+            {
+                // Chamar o ResultadosService para salvar o resultado no banco de dados
+                _resultadosService.SalvarResultado(resultado);
+            }
         }
     }
 }

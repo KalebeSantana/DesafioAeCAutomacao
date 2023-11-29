@@ -14,7 +14,7 @@ namespace AluraRpa.ConsoleApp
             var buscaService = new BuscaAluraService(scrapingService, resultadosService);
 
             // Lógica para interagir com o usuário e chamar os serviços
-            buscaService.RealizarBusca("RPA");
+            buscaService.RealizarBusca("Jogos");
         }
     }
 }

@@ -6,7 +6,7 @@ namespace AluraRpa.Domain
     {
         // Propriedades da entidade ResultadoBusca
         public string Titulo { get; set; }
-        public List<string> Professor { get; set; }
+        public string Professor { get; set; }
         public string CargaHoraria { get; set; }
         public string Descricao { get; set; }
     }

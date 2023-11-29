@@ -21,3 +21,5 @@ C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.ConsoleApp\bin
 C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.ConsoleApp\bin\Debug\WebDriver.xml
 C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.ConsoleApp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.ConsoleApp\bin\Debug\System.Drawing.Common.xml
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.ConsoleApp\bin\Debug\AluraRpa.Domain.dll
+C:\Users\kaleb\source\repos\DesafioAeCAutomacao\AluraRpa\AluraRpa.ConsoleApp\bin\Debug\AluraRpa.Domain.pdb

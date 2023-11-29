@@ -1,4 +1,5 @@
-﻿using AluraRpa.Infrastructure;
+﻿using AluraRpa.Domain;
+using AluraRpa.Infrastructure;
 
 namespace AluraRpa.Application
 {
@@ -11,6 +12,11 @@ namespace AluraRpa.Application
             _repository = repository;
         }
 
-        // Implementação do serviço para manipular os resultados
+        public void SalvarResultado(ResultadoBusca resultado)
+        {
+            // Lógica para salvar o resultado no banco de dados usando o _repository
+            _repository.GravarResultado(resultado);
+            
+        }
     }
 }
