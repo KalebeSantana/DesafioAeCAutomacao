@@ -1,5 +1,6 @@
 ﻿using AluraRpa.Application;
 using AluraRpa.Infrastructure;
+using AluraRpa.Shared;
 using System;
 
 namespace AluraRpa.ConsoleApp
@@ -8,6 +9,8 @@ namespace AluraRpa.ConsoleApp
     {
         static void Main(string[] args)
         {
+            Logger logger = new Logger($"./Logs/Log_{DateTime.Now:dd.MM.yy}.txt");
+
             Console.Clear();
             Console.WriteLine("************************************************************");
             Console.WriteLine("*                     AluraRpa Console App                 *");
@@ -29,7 +32,7 @@ namespace AluraRpa.ConsoleApp
                 Console.WriteLine("\nRealizando busca...\n");
 
                 // Chamar os serviços
-                buscaService.RealizarBusca(termoBusca);
+                buscaService.RealizarBusca(termoBusca, logger);
 
                 if (!BuscaAluraService.nenhumResultado)
                 {
@@ -45,7 +48,7 @@ namespace AluraRpa.ConsoleApp
                         Console.WriteLine("************************************************************");
 
                         // Chamar o método para mostrar os resultados
-                        resultadosService.MostrarResultados(termoBusca);
+                        resultadosService.MostrarResultados(termoBusca, logger);
                     }
                 }
 

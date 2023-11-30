@@ -1,5 +1,6 @@
 ﻿using AluraRpa.Domain;
 using AluraRpa.Infrastructure;
+using AluraRpa.Shared;
 using System;
 
 namespace AluraRpa.Application
@@ -13,19 +14,19 @@ namespace AluraRpa.Application
             _repository = repository;
         }
 
-        public void SalvarResultado(ResultadoBusca resultado)
+        public void SalvarResultado(ResultadoBusca resultado, Logger logger)
         {
             // Lógica para salvar o resultado no banco de dados usando o _repository
-            _repository.CriarBancoETabelas();
-            _repository.GravarResultadoNoBanco(resultado);
+            _repository.CriarBancoETabelas(logger);
+            _repository.GravarResultadoNoBanco(resultado, logger);
         }
 
-        public void MostrarResultados(string termo)
+        public void MostrarResultados(string termo, Logger logger)
         {
             try
             {
                 // Obter resultados do banco de dados
-                var resultados = _repository.ObterResultadosPorTermo(termo);
+                var resultados = _repository.ObterResultadosPorTermo(termo, logger);
 
                 if (resultados.Count == 0)
                 {
@@ -46,6 +47,7 @@ namespace AluraRpa.Application
             }
             catch (Exception ex)
             {
+                logger.LogError($"Erro ao obter resultados do banco de dados: {ex.Message}");
                 Console.WriteLine($"Erro ao obter resultados do banco de dados: {ex.Message}");
             }
         }

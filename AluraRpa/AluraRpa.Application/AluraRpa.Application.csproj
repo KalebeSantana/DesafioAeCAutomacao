@@ -54,6 +54,10 @@
       <Project>{e0c6faee-ea10-4cc5-9156-63f7ea85adf6}</Project>
       <Name>AluraRpa.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AluraRpa.Shared\AluraRpa.Shared.csproj">
+      <Project>{0bb2ff55-8b88-45e0-af72-1b703deec838}</Project>
+      <Name>AluraRpa.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

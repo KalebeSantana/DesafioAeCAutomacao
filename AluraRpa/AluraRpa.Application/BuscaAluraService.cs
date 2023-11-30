@@ -1,6 +1,6 @@
 ﻿using AluraRpa.Infrastructure;
+using AluraRpa.Shared;
 using System;
-using System.Collections.Generic;
 
 namespace AluraRpa.Application
 {
@@ -28,32 +28,36 @@ namespace AluraRpa.Application
         /// Realiza uma busca na Alura com base no termo especificado.
         /// </summary>
         /// <param name="termoBusca">O termo de busca.</param>
-        public void RealizarBusca(string termoBusca)
+        public void RealizarBusca(string termoBusca, Logger logger)
         {
             try
             {
                 // Obter os resultados da classe AluraWebScrapingService
-                var resultados = _scrapingService.RealizarWebScraping(termoBusca);
+                var resultados = _scrapingService.RealizarWebScraping(termoBusca, logger);
 
                 // Verificar se há resultados
                 if (resultados.Count == 0)
                 {
                     nenhumResultado = true;
+                    logger.LogWarning($"Nenhum resultado encontrado para o termo '{termoBusca}'.");
                     Console.WriteLine($"Nenhum resultado encontrado para o termo '{termoBusca}'.");
                     return;
                 }
+
+                logger.LogInfo("Registrando resultados no banco de dados...");
 
                 // Lógica para manipular e salvar os resultados no banco de dados
                 foreach (var resultado in resultados)
                 {
                     // Chamar o ResultadosService para salvar o resultado no banco de dados
-                    _resultadosService.SalvarResultado(resultado);
+                    _resultadosService.SalvarResultado(resultado, logger);
                 }
 
                 Console.WriteLine($"Foram encontrados {resultados.Count} resultados para o termo '{termoBusca}'.");
             }
             catch (Exception ex)
             {
+                logger.LogError($"Erro durante a busca na Alura: {ex.Message}");
                 Console.WriteLine($"Erro durante a busca na Alura: {ex.Message}");
             }
         }

@@ -1,0 +1,38 @@
+[11/30/2023 8:44:43 PM][INFO] - Iniciando EdgeDriver...
+[11/30/2023 8:44:44 PM][INFO] - EdgeDriver > navegando até o site https://www.alura.com.br/
+[11/30/2023 8:44:46 PM][INFO] - EdgeDriver > pesquisando pelo termo Jogos
+[11/30/2023 8:44:53 PM][INFO] - EdgeDriver > Foram encontrados 25 resultados
+[11/30/2023 8:44:53 PM][INFO] - EdgeDriver > Pegando informações da formação 'Formação Design de Jogos'
+[11/30/2023 8:44:55 PM][INFO] - EdgeDriver > professores encontrados: Rafael Nunes Cerveglieri, Rafael Balbi
+[11/30/2023 8:44:55 PM][INFO] - EdgeDriver > Pegando informações da formação 'Formação Desenvolvimento de Jogos com Unity'
+[11/30/2023 8:44:57 PM][INFO] - EdgeDriver > professores encontrados: Henrique Morato, Ricardo Bugan Debs
+[11/30/2023 8:44:57 PM][INFO] - EdgeDriver > Pegando informações do curso 'Curso Unity Mobile parte 2: interface responsiva e desempenho'
+[11/30/2023 8:44:59 PM][INFO] - EdgeDriver > professores encontrados: Ricardo Bugan Debs
+[11/30/2023 8:44:59 PM][INFO] - EdgeDriver > Pegando informações do curso 'Curso Unity Mobile parte 1: jogos para celular com persistência de dados'
+[11/30/2023 8:45:01 PM][INFO] - EdgeDriver > professores encontrados: Ricardo Bugan Debs
+[11/30/2023 8:45:01 PM][INFO] - EdgeDriver > Pegando informações do curso 'Curso Unity Mobile parte 3: aprofundando em jogos Mobile'
+[11/30/2023 8:45:03 PM][INFO] - EdgeDriver > professores encontrados: Ricardo Bugan Debs
+[11/30/2023 8:45:03 PM][INFO] - EdgeDriver > Pegando informações da formação 'Formação Game art: construindo um mundo isométrico'
+[11/30/2023 8:45:05 PM][INFO] - EdgeDriver > professores encontrados: Rainer Petter
+[11/30/2023 8:45:06 PM][INFO] - EdgeDriver > Pegando informações do curso 'Curso Marmoset e Substance: Bakes de mapas para jogos'
+[11/30/2023 8:45:08 PM][INFO] - EdgeDriver > professores encontrados: Daniel da Costa
+[11/30/2023 8:45:08 PM][INFO] - EdgeDriver > Pegando informações do curso 'Curso Ilustração digital: criando assets para cenários de jogos isoméricos'
+[11/30/2023 8:45:10 PM][INFO] - EdgeDriver > professores encontrados: Rainer Petter
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Formação Design de Jogos' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Formação Desenvolvimento de Jogos com Unity' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Curso Unity Mobile parte 2: interface responsiva e desempenho' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Curso Unity Mobile parte 1: jogos para celular com persistência de dados' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Curso Unity Mobile parte 3: aprofundando em jogos Mobile' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Formação Game art: construindo um mundo isométrico' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Curso Marmoset e Substance: Bakes de mapas para jogos' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:12 PM][INFO] - Verificando se registro com o título 'Curso Ilustração digital: criando assets para cenários de jogos isoméricos' já existe na tabela
+[11/30/2023 8:45:12 PM][WARNING] - O registro já existe na tabela. Não será inserido novamente.
+[11/30/2023 8:45:15 PM][INFO] - Criando conexão com o banco AluraRpa.sqlite3
+[11/30/2023 8:45:15 PM][INFO] - Obtendo dados relacionados ao temo Jogos

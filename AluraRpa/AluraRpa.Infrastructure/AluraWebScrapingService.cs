@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Collections.ObjectModel;
+using AluraRpa.Shared;
 
 namespace AluraRpa.Infrastructure
 {
@@ -17,7 +18,7 @@ namespace AluraRpa.Infrastructure
         /// </summary>
         /// <param name="termoBusca">O termo a ser pesquisado.</param>
         /// <returns>Uma lista de resultados de busca.</returns>
-        public List<ResultadoBusca> RealizarWebScraping(string termoBusca)
+        public List<ResultadoBusca> RealizarWebScraping(string termoBusca, Logger logger)
         {
             var resultados = new List<ResultadoBusca>();
 
@@ -26,8 +27,13 @@ namespace AluraRpa.Infrastructure
                 var service = EdgeDriverService.CreateDefaultService();
                 service.HideCommandPromptWindow = true;
 
+                logger.LogInfo("Iniciando EdgeDriver...");
+
                 using (IWebDriver driver = new EdgeDriver(service))
                 {
+                    
+                    logger.LogInfo("EdgeDriver > navegando até o site https://www.alura.com.br/");
+
                     // Navegar até a página da Alura
                     driver.Navigate().GoToUrl("https://www.alura.com.br/");
 
@@ -35,6 +41,7 @@ namespace AluraRpa.Infrastructure
                     var campoPesquisa = driver.FindElement(By.XPath("//input[@placeholder='O que você quer aprender?']"));
                     var botaoPesquisa = driver.FindElement(By.XPath("//input[@placeholder='O que você quer aprender?']//parent::form//button"));
 
+                    logger.LogInfo($"EdgeDriver > pesquisando pelo termo {termoBusca}");
                     // Inserir o termo de busca no campo
                     campoPesquisa.SendKeys(termoBusca);
 
@@ -46,6 +53,8 @@ namespace AluraRpa.Infrastructure
 
                     // Encontrar todos os elementos dentro da seção que contém "Resultado da sua Busca:"
                     var resultadosPesquisa = driver.FindElements(By.XPath("//h2[text()='Resultado da sua Busca:']//parent::section//ul//li"));
+
+                    logger.LogInfo($"EdgeDriver > Foram encontrados {resultadosPesquisa.Count} resultados");
 
                     // Iniciar o índice
                     int index = 0;
@@ -63,17 +72,21 @@ namespace AluraRpa.Infrastructure
 
                         if ((titulo.Text.Contains("Curso") && titulo.Text.ToLower().Contains(termoBusca.ToLower())) || (titulo.Text.Contains("Curso") && descricaoResumida.ToLower().Contains(termoBusca.ToLower())))
                         {
+                            logger.LogInfo($"EdgeDriver > Pegando informações do curso '{textoTitulo}'");
+
                             // Pressionar a tecla Ctrl e clicar no link
                             actions.KeyDown(Keys.Control).Click(titulo).KeyUp(Keys.Control).Build().Perform();
 
                             // Alternar para a nova aba
-                            SwitchTab(driver, 1);
+                            SwitchTab(driver, 1, logger);
 
                             // Pegar dados
                             string cargaHoraria = driver.FindElement(By.XPath("//div//p[text()='Para conclusão']//parent::div//p[1]")).Text;
                             var professores = driver.FindElements(By.XPath("//h3[@class='instructor-title--name']"));
 
-                            string resultadoProfessores = ObterNomesDosProfessores(professores);
+                            string resultadoProfessores = ObterNomesDosProfessores(professores, logger);
+
+                            logger.LogInfo($"EdgeDriver > professores encontrados: {resultadoProfessores}");
 
                             // Criar um objeto ResultadoBusca
                             var resultado = new ResultadoBusca
@@ -90,18 +103,20 @@ namespace AluraRpa.Infrastructure
                             driver.Close();
 
                             // Alternar de volta para a aba principal
-                            SwitchTab(driver, 0);
+                            SwitchTab(driver, 0, logger);
 
                             // Incrementar o índice
                             index++;
                         }
                         else if ((titulo.Text.Contains("Formação") && titulo.Text.ToLower().Contains(termoBusca.ToLower())) || (titulo.Text.Contains("Formação") && descricaoResumida.ToLower().Contains(termoBusca.ToLower())))
                         {
+                            logger.LogInfo($"EdgeDriver > Pegando informações da formação '{textoTitulo}'");
+
                             // Pressionar a tecla Ctrl e clicar no link
                             actions.KeyDown(Keys.Control).Click(titulo).KeyUp(Keys.Control).Build().Perform();
 
                             // Alternar para a nova aba
-                            SwitchTab(driver, 1);
+                            SwitchTab(driver, 1, logger);
 
                             // Pegar dados
                             string cargaHoraria = driver.FindElement(By.XPath("//div//p[text()='Para conclusão']//parent::div//div")).Text;
@@ -109,7 +124,9 @@ namespace AluraRpa.Infrastructure
 
                             var professores = driver.FindElements(By.XPath("//*[@id='instrutores']//li[@class='formacao-instrutores-instrutor --hidden-mobile']//h3"));
 
-                            string resultadoProfessores = ObterNomesDosProfessores(professores);
+                            string resultadoProfessores = ObterNomesDosProfessores(professores, logger);
+
+                            logger.LogInfo($"EdgeDriver > professores encontrados: {resultadoProfessores}");
 
                             // Criar um objeto ResultadoBusca
                             var resultado = new ResultadoBusca
@@ -126,7 +143,7 @@ namespace AluraRpa.Infrastructure
                             driver.Close();
 
                             // Alternar de volta para a aba principal
-                            SwitchTab(driver, 0);
+                            SwitchTab(driver, 0, logger);
 
                             // Incrementar o índice
                             index++;
@@ -141,6 +158,7 @@ namespace AluraRpa.Infrastructure
             }
             catch (Exception ex)
             {
+                logger.LogError($"Erro durante o web scraping: {ex.Message}");
                 Console.WriteLine($"Erro durante o web scraping: {ex.Message}");
             }
 
@@ -152,7 +170,7 @@ namespace AluraRpa.Infrastructure
         /// </summary>
         /// <param name="professores">A lista de elementos de professores.</param>
         /// <returns>Uma string contendo os nomes dos professores formatados.</returns>
-        private string ObterNomesDosProfessores(ReadOnlyCollection<IWebElement> professores)
+        private string ObterNomesDosProfessores(ReadOnlyCollection<IWebElement> professores, Logger logger)
         {
             string resultadoProfessores = "Nenhum professor disponível";
 
@@ -177,7 +195,7 @@ namespace AluraRpa.Infrastructure
         /// </summary>
         /// <param name="driver">O driver do Selenium.</param>
         /// <param name="indiceAba">O índice da aba.</param>
-        private static void SwitchTab(IWebDriver driver, int indiceAba)
+        private static void SwitchTab(IWebDriver driver, int indiceAba, Logger logger)
         {
             try
             {
@@ -191,11 +209,13 @@ namespace AluraRpa.Infrastructure
                 }
                 else
                 {
+                    logger.LogWarning($"Índice da aba {indiceAba} fora do intervalo.");
                     Console.WriteLine($"Índice da aba {indiceAba} fora do intervalo.");
                 }
             }
             catch (Exception ex)
             {
+                logger.LogError($"Erro durante a troca de aba: {ex.Message}");
                 Console.WriteLine($"Erro durante a troca de aba: {ex.Message}");
             }
         }

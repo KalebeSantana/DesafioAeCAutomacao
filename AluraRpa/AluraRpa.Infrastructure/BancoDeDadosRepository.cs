@@ -1,4 +1,5 @@
 ﻿using AluraRpa.Domain;
+using AluraRpa.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -13,17 +14,10 @@ namespace AluraRpa.Infrastructure
 
         public BancoDeDadosRepository(string nomeTabela)
         {
-            try
-            {
-                NomeTabela = nomeTabela.ToUpper();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao inicializar o banco de dados: {ex.Message}");
-            }
+            NomeTabela = nomeTabela.ToUpper();
         }
 
-        public void CriarBancoETabelas()
+        public void CriarBancoETabelas(Logger logger)
         {
             try
             {
@@ -33,7 +27,7 @@ namespace AluraRpa.Infrastructure
                     {
                         SQLiteConnection.CreateFile(NomeBanco);
                     }
-                    
+
                     connection.Open();
 
                     using (var command = connection.CreateCommand())
@@ -54,16 +48,19 @@ namespace AluraRpa.Infrastructure
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro durante a criação do banco de dados: {ex.Message}");
+                logger.LogError($"Erro durante a criação do banco de dados ou tabela: {ex.Message}");
+                Console.WriteLine($"Erro durante a criação do banco de dados ou tabela: {ex.Message}");
             }
         }
 
-        public void GravarResultadoNoBanco(ResultadoBusca resultado)
+        public void GravarResultadoNoBanco(ResultadoBusca resultado, Logger logger)
         {
             try
             {
+                logger.LogInfo($"Verificando se registro com o título '{resultado.Titulo}' já existe na tabela");
+
                 // Verifica se o registro já existe na tabela
-                if (!RegistroExiste(resultado))
+                if (!RegistroExiste(resultado, logger))
                 {
                     using (var connection = new SQLiteConnection($"Data Source={NomeBanco}"))
                     {
@@ -87,16 +84,18 @@ namespace AluraRpa.Infrastructure
                 }
                 else
                 {
+                    logger.LogWarning("O registro já existe na tabela. Não será inserido novamente.");
                     Console.WriteLine("O registro já existe na tabela. Não será inserido novamente.");
                 }
             }
             catch (Exception ex)
             {
+                logger.LogError($"Erro durante a gravação no banco de dados: {ex.Message}");
                 Console.WriteLine($"Erro durante a gravação no banco de dados: {ex.Message}");
             }
         }
 
-        private bool RegistroExiste(ResultadoBusca resultado)
+        private bool RegistroExiste(ResultadoBusca resultado, Logger logger)
         {
             using (var connection = new SQLiteConnection($"Data Source={NomeBanco}"))
             {
@@ -125,13 +124,17 @@ namespace AluraRpa.Infrastructure
             }
         }
 
-        public List<ResultadoBusca> ObterResultadosPorTermo(string termoBusca)
+        public List<ResultadoBusca> ObterResultadosPorTermo(string termoBusca, Logger logger)
         {
             try
             {
+                logger.LogInfo($"Criando conexão com o banco {NomeBanco}");
+
                 using (var connection = new SQLiteConnection($"Data Source={NomeBanco}"))
                 {
                     connection.Open();
+
+                    logger.LogInfo($"Obtendo dados relacionados ao temo {termoBusca}");
 
                     using (var command = connection.CreateCommand())
                     {
@@ -167,6 +170,7 @@ namespace AluraRpa.Infrastructure
             }
             catch (Exception ex)
             {
+                logger.LogError($"Erro durante a consulta no banco de dados: {ex.Message}");
                 Console.WriteLine($"Erro durante a consulta no banco de dados: {ex.Message}");
                 return new List<ResultadoBusca>();
             }
