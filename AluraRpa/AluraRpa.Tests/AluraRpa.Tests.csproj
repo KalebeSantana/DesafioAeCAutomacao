@@ -61,10 +61,6 @@
       <Project>{c2702005-87f6-4dbe-876e-9a415b3f6c80}</Project>
       <Name>AluraRpa.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AluraRpa.Infrastructure\AluraRpa.Infrastructure.csproj">
-      <Project>{e0c6faee-ea10-4cc5-9156-63f7ea85adf6}</Project>
-      <Name>AluraRpa.Infrastructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AluraRpa.Shared\AluraRpa.Shared.csproj">
       <Project>{0bb2ff55-8b88-45e0-af72-1b703deec838}</Project>
       <Name>AluraRpa.Shared</Name>

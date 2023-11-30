@@ -23,7 +23,10 @@ namespace AluraRpa.Infrastructure
 
             try
             {
-                using (IWebDriver driver = new EdgeDriver())
+                var service = EdgeDriverService.CreateDefaultService();
+                service.HideCommandPromptWindow = true;
+
+                using (IWebDriver driver = new EdgeDriver(service))
                 {
                     // Navegar até a página da Alura
                     driver.Navigate().GoToUrl("https://www.alura.com.br/");

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AluraRpa.Domain
+﻿namespace AluraRpa.Domain
 {
     public class ResultadoBusca
     {
